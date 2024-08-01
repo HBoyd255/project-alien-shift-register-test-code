@@ -25,11 +25,20 @@
 // Font used - ANSI Shadow
 
 #include <Arduino.h>
+#include <NESControllerInterface.h>
 
-void setup() { Serial.begin(9600); }
+#include "systemInfo.h"
+
+NESControllerInterface nes(NES_SHIFT_REG_DATA, COMMON_SHIFT_REG_LOAD,
+                           COMMON_SHIFT_REG_CLOCK);
+
+void setup() {
+    // Initialize serial communication
+    Serial.begin(SERIAL_BAUD_RATE);
+}
 
 void loop() {
-    Serial.println("Hello World!");
-
-    delay(1000);
+    // Test the NES controller
+    NESInput NESData = nes.getNESInput();
+    Serial.println(NESData);
 }
