@@ -8,12 +8,20 @@ the NES controller and the bumpers on the Project A.L.I.E.N. robot.
 Both shift registers are 4021 shift registers, which are 8-bit
 parallel-in/serial-out.
 
+## Breadboard Layout
+
+This is the way that I set the hardware up on a breadboard.
+
+Top: ![Breadboard from above](/photos/BreadboardTop.jpg)
+
+Side: ![Breadboard from the side](/photos/BreadboardSide.jpg)
+
 ## Notes
 
 ### For the bumper button shift register
 
-The state of the 8 buttons around the robot are read in as a byte.The lsb is the
-value of the front button, then the ascending bits represent the subsequent
+The state of the 8 buttons around the robot are read in as a byte. The lsb is
+the value of the front button, then the ascending bits represent the subsequent
 buttons rotating clockwise.
 
 ## Pull up vs pull down resistors
@@ -32,4 +40,3 @@ red wire to make a 5V rail.
 
 This difference in pull up vs pull down resistors isn't a problem, but is
 something that must be accounted for in the code.
-
